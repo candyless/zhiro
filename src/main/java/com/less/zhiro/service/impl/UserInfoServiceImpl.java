@@ -2,8 +2,10 @@ package com.less.zhiro.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.less.zhiro.dao.UserInfoMapper;
 import com.less.zhiro.entity.UserInfo;
 import com.less.zhiro.service.UserInfoService;
 
@@ -15,13 +17,19 @@ import com.less.zhiro.service.UserInfoService;
  */
 @Service("userInfoService")
 public class UserInfoServiceImpl implements UserInfoService{
+	@Autowired
+    private UserInfoMapper userInfoMapper;
+   
+	public List<UserInfo> select(UserInfo user) {
+		List<UserInfo> userInfo = userInfoMapper.select(user);
+		return userInfo;
+	}
 
 	/* (non-Javadoc)
-	 * @see com.less.zhiro.service.UserInfoSerive#select()
+	 * @see com.less.zhiro.service.UserInfoService#updateByPrimaryKey(com.less.zhiro.entity.UserInfo)
 	 */
-	public List<UserInfo> select(UserInfo user) {
-		// TODO Auto-generated method stub
-		return null;
+	public int updateByPrimaryKey(UserInfo record) {
+		return userInfoMapper.updateByPrimaryKey(record);
 	}
 
 }

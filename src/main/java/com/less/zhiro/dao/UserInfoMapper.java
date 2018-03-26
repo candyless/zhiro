@@ -43,4 +43,7 @@ public interface UserInfoMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(UserInfo record);
+    
+    
+    List<UserInfo> select(UserInfo user);
 }

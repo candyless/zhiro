@@ -12,4 +12,5 @@ import com.less.zhiro.entity.UserInfo;
  */
 public interface UserInfoService {
    List<UserInfo> select(UserInfo user);
+   int updateByPrimaryKey(UserInfo record);
 }

@@ -55,6 +55,7 @@ public class ShiroDbRealm extends AuthorizingRealm  {
 		        DefaultWebSecurityManager securityManager = (DefaultWebSecurityManager) SecurityUtils.getSecurityManager();
 		        DefaultWebSessionManager sessionManager = (DefaultWebSessionManager)securityManager.getSessionManager();
 		        Collection<Session> sessions = sessionManager.getSessionDAO().getActiveSessions();//获取当前已登录的用户session列表
+//		        单用户登录
 		        for(Session session : sessions){
 		            //清除该用户以前登录时保存的session
 		            if(userName.equals(String.valueOf(session.getAttribute(DefaultSubjectContext.PRINCIPALS_SESSION_KEY)))) {
@@ -62,8 +63,8 @@ public class ShiroDbRealm extends AuthorizingRealm  {
 		            }
 		        }
 				authcInfo = new SimpleAuthenticationInfo(userInfoList.get(0).getUsername(), userInfoList.get(0).getPassword(), userName);  
+				setSession("userid", userInfoList.get(0).getUserid());
 			}
-			setSession("userid", userInfoList.get(0).getUserid());
 		} catch (Exception e) {
 			LOG.error("Exception:",e);
 		}

@@ -18,9 +18,9 @@ public class StartTest {
 		 ClassPathXmlApplicationContext cxa = new ClassPathXmlApplicationContext("classpath*:applicationContext.xml");
 		 cxa.start();
 		 TestMapper map = (TestMapper)cxa.getBean("testMapper");
-		 List<Test> list = map.selectAll();
+		 /*List<Test> list = map.selectAll();
 		 for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i).getName());
-		}
+		}*/
 	}
 }
