@@ -67,12 +67,16 @@
         <!-- 自动扫描me/目录下的所有SQL映射的xml文件, 省掉Configuration.xml里的手工配置-->
         <property name="mapperLocations" value="classpath:com/less/zhiro/mapper/*.xml" />
     </bean>
-    <!-- 配置扫描器 -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!-- 扫描me.gacl.dao这个包以及它的子包下的所有映射接口类 -->
+   
+     <!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.less.zhiro.dao" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-    </bean>
+    </bean>-->
+
+	<!-- 配置扫描包，加载mapper代理对象(通用mapper) -->
+	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.less.zhiro.dao" />
+	</bean>
     
     
      <!-- ========================================分隔线========================================= -->

@@ -1,6 +1,4 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
@@ -22,17 +20,7 @@
 		<param-value>600000</param-value>
 	</context-param>
 
-	<listener>
-		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
-	</listener>
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	<listener>
-		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-	</listener>
-	
-	<filter>
+   <filter>
 		<filter-name>shiroFilter</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 		<init-param>
@@ -56,8 +44,16 @@
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
-	
-	
+
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
 
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
@@ -83,7 +79,7 @@
 		<url-pattern>/WEB-INF/jsp/*</url-pattern>
 	</servlet-mapping>
 	
-		<error-page>
+	<error-page>
 		<error-code>404</error-code>
 		<location>/WEB-INF/jsp/error.jsp</location>
 	</error-page>
